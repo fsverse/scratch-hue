@@ -69,7 +69,7 @@ class Scratch3YourExtension {
                         },
                         MY_STRING: {
                             // default value before the user sets something
-                            defaultValue: 'hello',
+                            defaultValue: 'hello hue',
 
                             // type/shape of the parameter - choose from:
                             //     ArgumentType.ANGLE - numeric value with an angle picker
@@ -82,6 +82,7 @@ class Scratch3YourExtension {
                         }
                     }
                 }
+
             ]
         };
     }
@@ -91,10 +92,12 @@ class Scratch3YourExtension {
      * implementation of the block with the opcode that matches this name
      *  this will be called when the block is used
      */
-    myFirstBlock ({ MY_NUMBER, MY_STRING }) {
-        // example implementation to return a string
-        return MY_STRING + ' : doubled would be ' + (MY_NUMBER * 2);
+    myFirstBlock({ MY_NUMBER, MY_STRING }) {
+    fetch('http://110.174.238.229:3000/wled')
+        .catch(err => console.error('Fetch error:', err));
+    return 'success';
     }
+    
 }
 
 module.exports = Scratch3YourExtension;
